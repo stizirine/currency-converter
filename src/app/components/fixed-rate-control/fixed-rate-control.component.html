@@ -1,0 +1,65 @@
+<p-card class="shadow-2 border-round-lg">
+  <ng-template pTemplate="title">{{ 'fixed.title' | transloco }}</ng-template>
+  @if (store.showFixedDeviationBanner()) {
+    <p-message severity="warn" [closable]="true" (onClose)="dismissDeviationBanner()" styleClass="mb-3 w-full">
+      <strong>{{ 'fixed.alertTitle' | transloco }}</strong>
+      <p class="m-0 mt-2">{{ 'fixed.alertBody' | transloco }}</p>
+    </p-message>
+  }
+  <div [formGroup]="fixedForm" class="flex flex-column gap-0">
+    <div class="flex align-items-center justify-content-between gap-3 flex-wrap mb-3">
+      <label for="fixed-toggle" class="font-medium text-color m-0">{{ 'fixed.enable' | transloco }}</label>
+      <p-toggleswitch inputId="fixed-toggle" formControlName="enabled" />
+    </div>
+    <div class="flex flex-wrap align-items-center gap-3 mb-3 text-sm text-color line-height-3">
+      <span>
+        {{ 'fixed.realSide' | transloco }}:
+        {{ store.displayRealExchangeRate() | number: '1.4-4' : numberLocale() }}
+      </span>
+      <span>
+        {{ 'fixed.appliedSide' | transloco }}:
+        {{ store.displayEffectiveRate() | number: '1.4-4' : numberLocale() }}
+      </span>
+      <p-tag
+        [value]="
+          store.isFixedRateActive() && !store.isFixedRateOverriddenByDeviation()
+            ? ('fixed.badgeFixed' | transloco)
+            : ('fixed.badgeReal' | transloco)
+        "
+        [severity]="store.isFixedRateActive() && !store.isFixedRateOverriddenByDeviation() ? 'info' : 'secondary'"
+      />
+    </div>
+    @if (store.isFixedRateActive() && store.fixedExchangeRate() !== null) {
+      <small class="text-color-secondary block mb-2 line-height-3">
+        {{ 'fixed.deviation' | transloco }}:
+        {{ store.deviationPercent() | number: '1.2-2' : numberLocale() }}%
+      </small>
+    }
+    <p-inputnumber
+      inputId="fixed-rate"
+      formControlName="rate"
+      mode="decimal"
+      [min]="0.01"
+      [max]="10"
+      [minFractionDigits]="0"
+      [maxFractionDigits]="4"
+      [locale]="numberLocale()"
+      [placeholder]="'fixed.placeholder' | transloco"
+      [fluid]="true"
+      class="w-full"
+    />
+  </div>
+  <small class="help block mt-2 text-color-secondary line-height-3">
+    @if (store.inputCurrency() === Currency.EUR) {
+      {{
+        'fixed.hint'
+          | transloco: { rate: (helpExampleEurUsd | number: '1.4-4' : numberLocale()) }
+      }}
+    } @else {
+      {{
+        'fixed.hintUsd'
+          | transloco: { rate: (helpExampleUsdEur | number: '1.4-4' : numberLocale()) }
+      }}
+    }
+  </small>
+</p-card>

@@ -1,0 +1,46 @@
+<p-card styleClass="shadow-2 border-round-lg">
+  <ng-template pTemplate="title">{{ 'rate.realLabel' | transloco }}</ng-template>
+
+  <div class="flex flex-wrap align-items-center gap-2 mb-3">
+    <p-tag [value]="'rate.liveBadge' | transloco" severity="success" />
+    <span class="text-color-secondary text-sm line-height-3" aria-live="polite">
+      {{ 'rate.lastSync' | transloco: { seconds: secondsSinceSync() } }}
+    </span>
+  </div>
+
+  <div
+    class="flex flex-wrap align-items-center gap-2 m-0 mb-2 text-color font-medium line-height-3"
+    aria-live="polite"
+  >
+    <span>
+      @if (store.inputCurrency() === Currency.EUR) {
+        {{ 'rate.format' | transloco: { rate: (store.displayRealExchangeRate() | number: '1.4-4' : numberLocale()) } }}
+      } @else {
+        {{ 'rate.formatUsdEur' | transloco: { rate: (store.displayRealExchangeRate() | number: '1.4-4' : numberLocale()) } }}
+      }
+    </span>
+    <span
+      class="inline-flex align-items-center justify-content-center text-xl line-height-1"
+      [ngClass]="
+        store.displayRateDirection() === RateDirection.Up
+          ? 'text-green-600'
+          : store.displayRateDirection() === RateDirection.Down
+            ? 'text-red-600'
+            : 'text-color-secondary'
+      "
+      [attr.aria-label]="directionTranslationKey() | transloco"
+    >
+      @switch (store.displayRateDirection()) {
+        @case (RateDirection.Up) {
+          <i class="pi pi-arrow-up" aria-hidden="true"></i>
+        }
+        @case (RateDirection.Down) {
+          <i class="pi pi-arrow-down" aria-hidden="true"></i>
+        }
+        @default {
+          <i class="pi pi-minus" aria-hidden="true"></i>
+        }
+      }
+    </span>
+  </div>
+</p-card>

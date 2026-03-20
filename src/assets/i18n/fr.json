@@ -1,0 +1,63 @@
+{
+  "app": {
+    "title": "Convertisseur EUR / USD",
+    "subtitle": "Taux simulé et conversion instantanée"
+  },
+  "nav": {
+    "lang": "Langue",
+    "langOption": {
+      "fr": "Français",
+      "en": "English"
+    }
+  },
+  "rate": {
+    "realLabel": "Taux de change réel",
+    "liveBadge": "EN DIRECT",
+    "lastSync": "Dernière synchro : il y a {{ seconds }} s",
+    "marketSubtitle": "Cours EUR / USD (simulé)",
+    "format": "1 EUR = {{ rate }} USD",
+    "formatUsdEur": "1 USD = {{ rate }} EUR",
+    "up": "Hausse",
+    "down": "Baisse",
+    "stable": "Stable"
+  },
+  "converter": {
+    "amountIn": "Montant en {{ currency }}",
+    "resultIn": "Résultat en {{ currency }}",
+    "help": "Entrez le montant à convertir",
+    "switch": "Inverser EUR et USD",
+    "addHistory": "Ajouter à l'historique",
+    "segmentEur": "EUR saisi",
+    "segmentUsd": "USD saisi"
+  },
+  "fixed": {
+    "title": "Taux fixe",
+    "enable": "Activer le taux fixe",
+    "hint": "Ex. 1 EUR = {{ rate }} USD (4 décimales)",
+    "hintUsd": "Ex. 1 USD = {{ rate }} EUR (4 décimales)",
+    "placeholder": "Ex. 1,1200",
+    "realSide": "Taux réel",
+    "appliedSide": "Taux appliqué",
+    "badgeReal": "Réel",
+    "badgeFixed": "Fixe",
+    "alertTitle": "Taux fixe désactivé",
+    "alertBody": "La déviation par rapport au taux réel dépasse 2 %. La conversion utilise à nouveau le taux réel.",
+    "deviation": "Déviation",
+    "dismiss": "OK"
+  },
+  "history": {
+    "title": "Historique (5 max)",
+    "empty": "Aucune conversion enregistrée",
+    "emptyHint": "Renseignez un montant puis cliquez sur « Ajouter à l'historique ».",
+    "colTime": "Heure",
+    "colRealRate": "Taux réel",
+    "colApplied": "Taux appliqué",
+    "colIn": "Entrée",
+    "colOut": "Sortie",
+    "colType": "Type"
+  },
+  "currencies": {
+    "EUR": "EUR",
+    "USD": "USD"
+  }
+}

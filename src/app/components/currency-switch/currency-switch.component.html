@@ -1,0 +1,11 @@
+<p-selectbutton
+  [options]="currencyOptions"
+  optionLabel="label"
+  optionValue="value"
+  [ngModel]="store.inputCurrency()"
+  (ngModelChange)="onSegmentChange($event)"
+  [allowEmpty]="false"
+  [fluid]="true"
+  styleClass="w-full"
+  [attr.aria-label]="'converter.switch' | transloco"
+/>

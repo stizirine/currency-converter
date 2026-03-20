@@ -1,0 +1,63 @@
+{
+  "app": {
+    "title": "EUR / USD converter",
+    "subtitle": "Simulated rate and instant conversion"
+  },
+  "nav": {
+    "lang": "Language",
+    "langOption": {
+      "fr": "French",
+      "en": "English"
+    }
+  },
+  "rate": {
+    "realLabel": "Live (simulated) EUR/USD",
+    "liveBadge": "LIVE",
+    "lastSync": "Last sync: {{ seconds }} s ago",
+    "marketSubtitle": "EUR / USD market rate (simulated)",
+    "format": "1 EUR = {{ rate }} USD",
+    "formatUsdEur": "1 USD = {{ rate }} EUR",
+    "up": "Up",
+    "down": "Down",
+    "stable": "Flat"
+  },
+  "converter": {
+    "amountIn": "Amount in {{ currency }}",
+    "resultIn": "Result in {{ currency }}",
+    "help": "Enter the amount to convert",
+    "switch": "Swap EUR and USD",
+    "addHistory": "Add to history",
+    "segmentEur": "EUR input",
+    "segmentUsd": "USD input"
+  },
+  "fixed": {
+    "title": "Fixed rate",
+    "enable": "Use a fixed rate",
+    "hint": "e.g. 1 EUR = {{ rate }} USD (4 decimals)",
+    "hintUsd": "e.g. 1 USD = {{ rate }} EUR (4 decimals)",
+    "placeholder": "e.g. 1.1200",
+    "realSide": "Real rate",
+    "appliedSide": "Applied rate",
+    "badgeReal": "Real",
+    "badgeFixed": "Fixed",
+    "alertTitle": "Fixed rate turned off",
+    "alertBody": "Deviation from the real rate exceeds 2%. Conversions now use the real rate.",
+    "deviation": "Deviation",
+    "dismiss": "OK"
+  },
+  "history": {
+    "title": "History (last 5)",
+    "empty": "No saved conversions yet",
+    "emptyHint": "Enter an amount then click “Add to history”.",
+    "colTime": "Time",
+    "colRealRate": "Real rate",
+    "colApplied": "Applied rate",
+    "colIn": "Input",
+    "colOut": "Output",
+    "colType": "Type"
+  },
+  "currencies": {
+    "EUR": "EUR",
+    "USD": "USD"
+  }
+}
